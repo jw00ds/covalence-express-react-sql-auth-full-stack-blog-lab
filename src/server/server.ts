@@ -6,7 +6,6 @@ import routes from './routes';
 
 import './middlewares/passport-jwt';
 import './middlewares/passport-local-strategy';
-import './middlewares/passport-strategies';
 
 const app = express();
 

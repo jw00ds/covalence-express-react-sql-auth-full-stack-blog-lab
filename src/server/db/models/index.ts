@@ -1,9 +1,9 @@
 export interface ReviewPullModel {
-    id: number;
-    title: string;
-    commentary: string;
-    rider: string;
-    tags: string;
+    Review_ID: number;
+    Review_Author: string;
+    Review_Title: string;
+    Review_Commentary: string;
+    Review_Tags: string;
 }
 
 export interface ReviewPostModel {

@@ -1,5 +1,10 @@
 $theme-colors: (
-    'primary': #0091ea //Covalence Blue!  :D
+    'primary': #1c74aa
 );
+
+.thumbnail {
+    width: auto;
+    height: 120px;
+}
 
 @import '../../../node_modules/bootstrap/scss/bootstrap.scss';

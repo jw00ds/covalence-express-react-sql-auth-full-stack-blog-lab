@@ -29,8 +29,8 @@ router.post('/', passport.authenticate('jwt'), async (req: ReqUser, res) => {
     try {
         const reviewInsertRes = await db.reviews.createReview(newFormEntry.title, newFormEntry.commentary, newFormEntry.image_url, req.user.id);
         // const reviewInsertRes = await db.reviews.createReview(newFormEntry);
-        if (newFormEntry.tagId) {
-            await db.reviewtags.createReviewTag(reviewInsertRes.insertId, newFormEntry.tagId);
+        if (newFormEntry.tagid) {
+            await db.reviewtags.createReviewTag(reviewInsertRes.insertId, newFormEntry.tagid);
         }
         res.status(201).json({ msg: 'New review & tag(s) posted'});
     } catch (err) {
@@ -57,8 +57,8 @@ router.put('/:id', passport.authenticate('jwt'), async (req, res) => {
     const id = Number(req.params.id);
     const revisedReview = req.body;
     try {
-        const reviewRes = await db.reviews.reviseReview(revisedReview.title, revisedReview.commentary, revisedReview.image_url, revisedReview.riderId, id);
-        res.json({ msg: 'review edited', id, reviewRes });
+        const reviewRes = await db.reviews.reviseReview(revisedReview.title, revisedReview.commentary, revisedReview.image_url, id);
+        res.json({ msg: 'Review edited', id, reviewRes });
     } catch (err) {
         console.log(err);
         res.status(500).json({ msg: 'There was an error', err });

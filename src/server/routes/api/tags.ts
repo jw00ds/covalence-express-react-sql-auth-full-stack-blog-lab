@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
     const newTag = req.body;
     try {
-        const tagInsertRes = await db.tags.createTag(newTag.tagName);
+        const tagInsertRes = await db.tags.createTag(newTag.name);
         res.status(201).json({ msg: 'New tag posted', tagInsertRes });
     } catch (err) {
         console.log(err);
