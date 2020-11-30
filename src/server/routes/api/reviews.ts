@@ -61,7 +61,7 @@ router.delete("/:id", passport.authenticate("jwt"), async (req, res) => {
 
 // Request body for reviews will have this format: { title: string, commentary: string, image_url: string, riderId: number, id: number }
 // Put to /api/reviews/:id
-router.put("/:id", passport.authenticate("jwt"), async (req, res) => {
+router.put("/:id", passport.authenticate("jwt"), async (req: ReqUser, res) => {
   const id = Number(req.params.id);
   const revisedReview = req.body;
   try {
