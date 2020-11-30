@@ -1,10 +1,10 @@
 $theme-colors: (
-    'primary': #1c74aa
+  "primary": #1c74aa,
 );
 
 .thumbnail {
-    width: auto;
-    height: 120px;
+  width: auto;
+  height: 120px;
 }
 
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";

@@ -48,20 +48,16 @@ router.post("/", passport.authenticate("jwt"), async (req: ReqUser, res) => {
 });
 
 // Delete from /api/reviews/:id
-router.delete(
-  "/:id",
-  passport.authenticate("jwt"),
-  async (req: ReqUser, res) => {
-    const id = Number(req.params.id);
-    try {
-      await db.reviews.destroyReview(id);
-      res.json({ msg: "Review deleted", id });
-    } catch (err) {
-      console.log(err);
-      res.status(500).json({ msg: "There was an error", err });
-    }
+router.delete("/:id", passport.authenticate("jwt"), async (req, res) => {
+  const id = Number(req.params.id);
+  try {
+    await db.reviews.destroyReview(id);
+    res.json({ msg: "Review deleted", id });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ msg: "There was an error", err });
   }
-);
+});
 
 // Request body for reviews will have this format: { title: string, commentary: string, image_url: string, riderId: number, id: number }
 // Put to /api/reviews/:id
