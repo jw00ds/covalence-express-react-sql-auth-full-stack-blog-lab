@@ -1,7 +1,4 @@
-
-
 // THIS IS ALL DONE IN REGISTER / LOGIN
-
 
 // import * as express from 'express';
 // import db from '../../db';
