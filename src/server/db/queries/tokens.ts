@@ -12,8 +12,7 @@ const createToken = (token: IPayload) => {
   return Query<DbCannedResp>("INSERT INTO tokens SET ?", token);
 };
 
-const reviseToken = (jwt: string, id: number) =>
-  Query<DbCannedResp>("UPDATED tokens SET jwt = ? WHERE id = ?", [jwt, id]);
+const reviseToken = (jwt: string, id: number) => Query<DbCannedResp>('UPDATE tokens SET jwt = ? WHERE id = ?', [jwt, id]);
 
 const destroyToken = (id: number) =>
   Query<DbCannedResp>("DELETE FROM tokens WHERE id = ?", id);
